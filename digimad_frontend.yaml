@@ -30,6 +30,7 @@ spec:
   - protocol: TCP
     port: 4200
     targetPort: 4200
+    nodePort: 31420
   type: LoadBalancer
   selector:
     app: nodejs
