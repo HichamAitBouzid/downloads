@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: digimad-frontend-deployment
+  name: digimad-backend-ai-io-controller-deployment
   labels:
     app: python
 spec:
@@ -16,7 +16,7 @@ spec:
         app: python
     spec:
       containers:
-        - name: digimad-frontend
+        - name: digimad-backend-ai-io-controller
           image: 10.128.14.150/library/digimad_backend_ai_io_controller_image
           ports:
             - containerPort: 8000
@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: digimad-frontend-service
+  name: digimad-backend-ai-io-controller-service
 spec:
   ports:
   - protocol: TCP
