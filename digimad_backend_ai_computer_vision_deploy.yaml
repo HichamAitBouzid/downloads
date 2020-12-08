@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: digimad-ai-computer-vision
-          image: 10.128.14.150/library/digimad_ai_computer_vision_image
+          image: 10.128.14.150/library/digimad_backend_ai_computer_vision_image
           ports:
             - containerPort: 4000
 ---
