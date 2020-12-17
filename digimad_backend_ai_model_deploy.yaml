@@ -17,7 +17,7 @@ spec:
         app: python
     spec:
       containers:
-        - name: digimad-backend-ai-io-controller
+        - name: digimad-backend-ai-model
           image: 10.128.14.150/library/digimad_backend_ai_model_image
           ports:
             - containerPort: 8000
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: digimad-backend-ai-io-controller-service
+  name: digimad-backend-ai-model-service
   namespace: testing
 spec:
   ports:
