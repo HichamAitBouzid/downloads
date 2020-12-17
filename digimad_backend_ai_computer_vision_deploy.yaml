@@ -25,6 +25,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: digimad-ai-computer-vision-service
+  namespace: testing
 spec:
   ports:
   - protocol: TCP
