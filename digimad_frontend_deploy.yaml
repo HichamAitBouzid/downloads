@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: digimad-frontend-deployment
+  namespace: testing
   labels:
     app: nodejs
 spec:
