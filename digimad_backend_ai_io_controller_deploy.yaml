@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: digimad-backend-ai-io-controller-deployment
+  namespace: testing
   labels:
     app: python
 spec:
