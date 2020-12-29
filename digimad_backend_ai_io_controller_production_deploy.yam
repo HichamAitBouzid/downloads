@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digimad-backend-ai-io-controller-deployment
+  namespace: production
+  labels:
+    app: python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      labels:
+        app: python
+    spec:
+      containers:
+        - name: digimad-backend-ai-io-controller
+          image: 10.128.14.150/library/digimad_backend_ai_io_controller_image
+          ports:
+            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: digimad-backend-ai-io-controller-service
+  namespace: production
+spec:
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+    nodePort: 31800
+  type: LoadBalancer
+  selector:
+    app: python
+  externalIPs:
+   - 10.128.14.10
