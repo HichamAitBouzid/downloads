@@ -6,8 +6,8 @@ metadata:
   labels:
     app: python
 spec:
-  replicas: 1
-  selector:
+  replicas: 
+  selector: 2
     matchLabels:
       app: python
   template:
