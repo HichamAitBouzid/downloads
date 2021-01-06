@@ -21,11 +21,6 @@ spec:
           image: 10.128.14.150/library/digimad_backend_ai_model_image
           ports:
             - containerPort: 6969
-          command: ["/bin/sh", "-c"]
-          args:
-          - apt install -y iproute2 ssh sshpass;
-            echo ai-model `ip -4 addr show eth0 | grep -oP '(?<=inet\\s)\d+(\.\\d+){3}'` | sshpass -p pxl123 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  root@10.128.14.10 -T 'cat >> /etc/resolv.conf';
-            uvicorn predict:app --reload --port 31900 --host 0.0.0.0 --ssl-keyfile ./local.key --ssl-certfile ./local.crt
 ---
 apiVersion: v1
 kind: Service
