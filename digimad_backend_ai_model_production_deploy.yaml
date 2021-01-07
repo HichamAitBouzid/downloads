@@ -1,1 +1,39 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digimad-backend-ai-model-deployment-production
+  namespace: production
+  labels:
+    app: python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      labels:
+        app: python
+    spec:
+      containers:
+        - name: digimad-backend-ai-model-production
+          image: 10.128.14.150/library/digimad_backend_ai_model_image_production
+          ports:
+            - containerPort: 6969
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: digimad-backend-ai-model-service-production
+  namespace: production
+spec:
+  ports:
+  - protocol: TCP
+    port: 6969
+    targetPort: 6969
+    nodePort: 30900
+  type: LoadBalancer
+  selector:
+    app: python
+  externalIPs:
+   - 10.128.14.10
