@@ -31,7 +31,6 @@ spec:
   - protocol: TCP
     port: 433
     targetPort: 433
-    nodePort: 30420
   type: LoadBalancer
   selector:
     app: nodejs
