@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: digimad-frontend-deployment
+  name: digimad-frontend-deployment-production
   namespace: production
   labels:
     app: nodejs
@@ -16,24 +16,24 @@ spec:
         app: nodejs
     spec:
       containers:
-        - name: digimad-frontend
-          image: 10.128.14.150/library/digimad_frontend_image
+        - name: digimad-frontend-production
+          image: 10.128.14.150/library/digimad_frontend_image_production
           ports:
-            - containerPort: 4200
+            - containerPort: 433
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: digimad-frontend-service
+  name: digimad-frontend-service-production
   namespace: production
 spec:
   ports:
   - protocol: TCP
-    port: 4200
-    targetPort: 4200
-    nodePort: 31420
+    port: 433
+    targetPort: 433
+    nodePort: 30420
   type: LoadBalancer
   selector:
     app: nodejs
   externalIPs:
-   - 10.128.14.10
+   - 10.128.14.110
